@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="/js/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="/js/echarts/echarts.min.js"></script>
+</head>
+<body>
+
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+
+    var month_4=[[${users.month_4}]];
+    var month_5=[[${users.month_5}]];
+    var month_6=[[${users.month_6}]];
+    var month_7=[[${users.month_7}]];
+    var month_8=[[${users.month_8}]];
+    var month_9=[[${users.month_9}]];
+
+    var option = {
+        title: {
+            text: '注册用户统计'
+        },
+        tooltip: {},
+        legend: {
+            data:['数量']
+        },
+        xAxis: {
+            data: ["4月份","5月份","6月份","7月份","8月份","9月份"]
+        },
+        yAxis: {},
+        series: [{
+            name: '数量',
+            type: 'bar',
+            data: [month_4, month_5, month_6, month_7, month_8, month_9]
+        }]
+    };
+
+    myChart.setOption(option);
+</script>
+
+</body>
+</html>
